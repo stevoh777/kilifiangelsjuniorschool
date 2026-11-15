@@ -33,3 +33,4 @@ use the editor.
 - School content (photos, contacts, events, news, term dates) lives in `src/lib/site.ts`; pages read from it so content can be swapped in one place.
 - Shared site chrome (header/footer/toaster) wraps `<Outlet />` in `src/routes/__root.tsx`; each public page is its own route file with its own head().
 - Uploaded photos are CDN asset pointers in `src/assets/photos/*.asset.json`, not binaries in the repo.
+- Client UI dependencies are listed in `optimizeDeps.include` in `vite.config.ts`; add new runtime UI packages there so the dev preview never re-bundles mid-session and loads two React copies.

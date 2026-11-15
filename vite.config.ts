@@ -15,4 +15,26 @@ export default defineConfig({
     // nitro/vite builds from this
     server: { entry: "server" },
   },
+  vite: {
+    // Pre-bundle UI deps up front so the dev server never re-optimizes mid-session, which can
+    // load two React copies and crash hooks ("Cannot read properties of null (reading 'useState')").
+    optimizeDeps: {
+      include: [
+        "react",
+        "react-dom",
+        "react-dom/client",
+        "sonner",
+        "lucide-react",
+        "@radix-ui/react-dialog",
+        "@radix-ui/react-dropdown-menu",
+        "@radix-ui/react-slot",
+        "@radix-ui/react-tabs",
+        "@radix-ui/react-accordion",
+        "@radix-ui/react-label",
+        "class-variance-authority",
+        "clsx",
+        "tailwind-merge",
+      ],
+    },
+  },
 });
