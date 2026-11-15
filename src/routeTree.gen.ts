@@ -10,33 +10,193 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as AcademicsRouteImport } from './routes/academics'
+import { Route as AdmissionsRouteImport } from './routes/admissions'
+import { Route as ChristianLifeRouteImport } from './routes/christian-life'
+import { Route as CoCurricularRouteImport } from './routes/co-curricular'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as DownloadsRouteImport } from './routes/downloads'
+import { Route as FacilitiesRouteImport } from './routes/facilities'
+import { Route as GalleryRouteImport } from './routes/gallery'
+import { Route as LeadershipRouteImport } from './routes/leadership'
+import { Route as LoginRouteImport } from './routes/login'
+import { Route as NewsRouteImport } from './routes/news'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AcademicsRoute = AcademicsRouteImport.update({
+  id: '/academics',
+  path: '/academics',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdmissionsRoute = AdmissionsRouteImport.update({
+  id: '/admissions',
+  path: '/admissions',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ChristianLifeRoute = ChristianLifeRouteImport.update({
+  id: '/christian-life',
+  path: '/christian-life',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CoCurricularRoute = CoCurricularRouteImport.update({
+  id: '/co-curricular',
+  path: '/co-curricular',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DownloadsRoute = DownloadsRouteImport.update({
+  id: '/downloads',
+  path: '/downloads',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FacilitiesRoute = FacilitiesRouteImport.update({
+  id: '/facilities',
+  path: '/facilities',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GalleryRoute = GalleryRouteImport.update({
+  id: '/gallery',
+  path: '/gallery',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LeadershipRoute = LeadershipRouteImport.update({
+  id: '/leadership',
+  path: '/leadership',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NewsRoute = NewsRouteImport.update({
+  id: '/news',
+  path: '/news',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/academics': typeof AcademicsRoute
+  '/admissions': typeof AdmissionsRoute
+  '/christian-life': typeof ChristianLifeRoute
+  '/co-curricular': typeof CoCurricularRoute
+  '/contact': typeof ContactRoute
+  '/downloads': typeof DownloadsRoute
+  '/facilities': typeof FacilitiesRoute
+  '/gallery': typeof GalleryRoute
+  '/leadership': typeof LeadershipRoute
+  '/login': typeof LoginRoute
+  '/news': typeof NewsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/academics': typeof AcademicsRoute
+  '/admissions': typeof AdmissionsRoute
+  '/christian-life': typeof ChristianLifeRoute
+  '/co-curricular': typeof CoCurricularRoute
+  '/contact': typeof ContactRoute
+  '/downloads': typeof DownloadsRoute
+  '/facilities': typeof FacilitiesRoute
+  '/gallery': typeof GalleryRoute
+  '/leadership': typeof LeadershipRoute
+  '/login': typeof LoginRoute
+  '/news': typeof NewsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/academics': typeof AcademicsRoute
+  '/admissions': typeof AdmissionsRoute
+  '/christian-life': typeof ChristianLifeRoute
+  '/co-curricular': typeof CoCurricularRoute
+  '/contact': typeof ContactRoute
+  '/downloads': typeof DownloadsRoute
+  '/facilities': typeof FacilitiesRoute
+  '/gallery': typeof GalleryRoute
+  '/leadership': typeof LeadershipRoute
+  '/login': typeof LoginRoute
+  '/news': typeof NewsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/academics'
+    | '/admissions'
+    | '/christian-life'
+    | '/co-curricular'
+    | '/contact'
+    | '/downloads'
+    | '/facilities'
+    | '/gallery'
+    | '/leadership'
+    | '/login'
+    | '/news'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/about'
+    | '/academics'
+    | '/admissions'
+    | '/christian-life'
+    | '/co-curricular'
+    | '/contact'
+    | '/downloads'
+    | '/facilities'
+    | '/gallery'
+    | '/leadership'
+    | '/login'
+    | '/news'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/academics'
+    | '/admissions'
+    | '/christian-life'
+    | '/co-curricular'
+    | '/contact'
+    | '/downloads'
+    | '/facilities'
+    | '/gallery'
+    | '/leadership'
+    | '/login'
+    | '/news'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  AcademicsRoute: typeof AcademicsRoute
+  AdmissionsRoute: typeof AdmissionsRoute
+  ChristianLifeRoute: typeof ChristianLifeRoute
+  CoCurricularRoute: typeof CoCurricularRoute
+  ContactRoute: typeof ContactRoute
+  DownloadsRoute: typeof DownloadsRoute
+  FacilitiesRoute: typeof FacilitiesRoute
+  GalleryRoute: typeof GalleryRoute
+  LeadershipRoute: typeof LeadershipRoute
+  LoginRoute: typeof LoginRoute
+  NewsRoute: typeof NewsRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +208,107 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/academics': {
+      id: '/academics'
+      path: '/academics'
+      fullPath: '/academics'
+      preLoaderRoute: typeof AcademicsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admissions': {
+      id: '/admissions'
+      path: '/admissions'
+      fullPath: '/admissions'
+      preLoaderRoute: typeof AdmissionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/christian-life': {
+      id: '/christian-life'
+      path: '/christian-life'
+      fullPath: '/christian-life'
+      preLoaderRoute: typeof ChristianLifeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/co-curricular': {
+      id: '/co-curricular'
+      path: '/co-curricular'
+      fullPath: '/co-curricular'
+      preLoaderRoute: typeof CoCurricularRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/downloads': {
+      id: '/downloads'
+      path: '/downloads'
+      fullPath: '/downloads'
+      preLoaderRoute: typeof DownloadsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/facilities': {
+      id: '/facilities'
+      path: '/facilities'
+      fullPath: '/facilities'
+      preLoaderRoute: typeof FacilitiesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/gallery': {
+      id: '/gallery'
+      path: '/gallery'
+      fullPath: '/gallery'
+      preLoaderRoute: typeof GalleryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/leadership': {
+      id: '/leadership'
+      path: '/leadership'
+      fullPath: '/leadership'
+      preLoaderRoute: typeof LeadershipRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/news': {
+      id: '/news'
+      path: '/news'
+      fullPath: '/news'
+      preLoaderRoute: typeof NewsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  AcademicsRoute: AcademicsRoute,
+  AdmissionsRoute: AdmissionsRoute,
+  ChristianLifeRoute: ChristianLifeRoute,
+  CoCurricularRoute: CoCurricularRoute,
+  ContactRoute: ContactRoute,
+  DownloadsRoute: DownloadsRoute,
+  FacilitiesRoute: FacilitiesRoute,
+  GalleryRoute: GalleryRoute,
+  LeadershipRoute: LeadershipRoute,
+  LoginRoute: LoginRoute,
+  NewsRoute: NewsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

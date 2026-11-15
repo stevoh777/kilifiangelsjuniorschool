@@ -28,3 +28,8 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+## Project rules
+- School content (photos, contacts, events, news, term dates) lives in `src/lib/site.ts`; pages read from it so content can be swapped in one place.
+- Shared site chrome (header/footer/toaster) wraps `<Outlet />` in `src/routes/__root.tsx`; each public page is its own route file with its own head().
+- Uploaded photos are CDN asset pointers in `src/assets/photos/*.asset.json`, not binaries in the repo.
