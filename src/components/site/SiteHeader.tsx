@@ -1,4 +1,5 @@
-import { Link } from "@tanstack/react-router";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
+import { Link, useNavigate } from "@tanstack/react-router";
 import { ChevronDown, Menu, Phone } from "lucide-react";
 import { useState } from "react";
 
@@ -11,6 +12,8 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { leaders, primaryNav, schoolLifeNav, telHref, trailingNav } from "@/lib/site";
+import { supabase } from "@/integrations/supabase/client";
+import { meQuery } from "@/lib/session";
 import { Logo } from "./Logo";
 
 const linkClass =
@@ -19,6 +22,16 @@ const activeClass = "bg-accent text-primary";
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
+  const { data: me } = useQuery(meQuery);
+  const qc = useQueryClient();
+  const navigate = useNavigate();
+  const signOut = async () => {
+    await qc.cancelQueries();
+    qc.clear();
+    await supabase.auth.signOut();
+    setOpen(false);
+    navigate({ to: "/login", replace: true });
+  };
 
   return (
     <header className="sticky top-0 z-50 border-b border-border/70 bg-background/90 backdrop-blur-md">
@@ -72,9 +85,18 @@ export function SiteHeader() {
         </nav>
 
         <div className="flex shrink-0 items-center gap-2">
-          <Button asChild variant="outline" size="sm" className="hidden sm:inline-flex">
-            <Link to="/login">Login</Link>
-          </Button>
+          {me ? (
+            <>
+              <Button asChild variant="outline" size="sm" className="hidden sm:inline-flex">
+                <Link to="/dashboard">My portal</Link>
+              </Button>
+              <Button variant="ghost" size="sm" className="hidden sm:inline-flex" onClick={signOut}>Sign out</Button>
+            </>
+          ) : (
+            <Button asChild variant="outline" size="sm" className="hidden sm:inline-flex">
+              <Link to="/login">Login</Link>
+            </Button>
+          )}
           <Button asChild size="sm" className="hidden sm:inline-flex">
             <Link to="/admissions" hash="apply">Apply Now</Link>
           </Button>
@@ -121,11 +143,20 @@ export function SiteHeader() {
                       Apply Now
                     </Link>
                   </Button>
-                  <Button asChild variant="outline">
-                    <Link to="/login" onClick={() => setOpen(false)}>
-                      Parent / Learner Login
-                    </Link>
-                  </Button>
+                  {me ? (
+                    <>
+                      <Button asChild variant="outline">
+                        <Link to="/dashboard" onClick={() => setOpen(false)}>My portal</Link>
+                      </Button>
+                      <Button variant="ghost" onClick={signOut}>Sign out</Button>
+                    </>
+                  ) : (
+                    <Button asChild variant="outline">
+                      <Link to="/login" onClick={() => setOpen(false)}>
+                        Parent / Learner Login
+                      </Link>
+                    </Button>
+                  )}
                 </div>
               </nav>
             </SheetContent>

@@ -34,3 +34,4 @@ use the editor.
 - Shared site chrome (header/footer/toaster) wraps `<Outlet />` in `src/routes/__root.tsx`; each public page is its own route file with its own head().
 - Uploaded photos are CDN asset pointers in `src/assets/photos/*.asset.json`, not binaries in the repo.
 - Client UI dependencies are listed in `optimizeDeps.include` in `vite.config.ts`; add new runtime UI packages there so the dev preview never re-bundles mid-session and loads two React copies.
+- Signed-in pages live under `src/routes/_authenticated/` (client-only gate redirecting to `/login`); the first admin is created once via a public server function that refuses when any admin exists, because there is no public sign-up.
